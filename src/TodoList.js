@@ -7,6 +7,7 @@ const TodoListContainer = styled.div`
   border: 2.5px solid black;
   border-radius: 10px;
   width: 340px;
+  height: 550px;
 `;
 
 // 할일 목록
@@ -15,7 +16,7 @@ const TodoListTop = styled.div`
   background: rgba(235, 235, 235, 0.589);
   border-radius: 10px 10px 0 0;
   padding: 5px 5px 5px 10px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   > div {
     display: flex;
     flex-direction: row;
@@ -23,7 +24,7 @@ const TodoListTop = styled.div`
 
     > img {
       width: 80px;
-      margin-left: 110px;
+      margin-left: 120px;
     }
   }
 `;
