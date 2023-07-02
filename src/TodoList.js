@@ -8,6 +8,10 @@ const TodoListContainer = styled.div`
   border-radius: 10px;
   width: 340px;
   height: 550px;
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+  }
 `;
 
 // 할일 목록
@@ -33,6 +37,7 @@ const TodoListMain = styled.div`
   padding: 15px;
   height: 500px;
   width: 310px;
+  overflow-y: auto;
 
   & > button {
     background: #595959;
@@ -107,16 +112,24 @@ const TodoItem = styled.div`
 const TodoText = styled.span`
   flex: 1;
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
+  text-decoration-thickness: 2px;
+  text-decoration-color: black;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  background: rgba(235, 235, 235, 0.589);
+  border-radius: 10px;
+  border: 2.5px solid black;
+  padding: 5px;
 `;
 
 const TodoButton = styled.button`
   border: 2.5px solid black;
   border-radius: 10px;
-  background: rgba(235, 235, 235, 0.589);
   font-size: 0.7rem;
   margin-left: 5px;
+  & > img {
+    width: 22px;
+  }
 `;
 
 const TodoList = () => {
@@ -230,16 +243,21 @@ const TodoList = () => {
               )}
               {editingTodoId === todo.id ? (
                 <>
-                  <TodoButton onClick={handleUpdateTodo}>저장</TodoButton>
-                  <TodoButton onClick={handleCancelEdit}>취소</TodoButton>
+                  <TodoButton onClick={handleUpdateTodo}>
+                    {" "}
+                    <img src="./imgs/save.png" alt="save이미지"></img>
+                  </TodoButton>
+                  <TodoButton onClick={handleCancelEdit}>
+                    <img src="./imgs/close.png" alt="close이미지"></img>
+                  </TodoButton>
                 </>
               ) : (
                 <>
                   <TodoButton onClick={() => handleEditTodo(todo.id)}>
-                    수정
+                    <img src="./imgs/edit.png" alt="edit이미지"></img>
                   </TodoButton>
                   <TodoButton onClick={() => handleDeleteTodo(todo.id)}>
-                    삭제
+                    <img src="./imgs/close.png" alt="close이미지"></img>
                   </TodoButton>
                 </>
               )}
