@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Gamecontainer = styled.div`
@@ -74,6 +74,31 @@ const GameMain = styled.div`
   }
 `;
 
+const Effect = keyframes`
+//단계 별로 변화를 주는 코드
+0% {
+    color: black;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+  49% {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: black;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+`;
+
 const Click = styled.div`
   display: flex;
   justify-content: center;
@@ -90,6 +115,10 @@ const Click = styled.div`
   &:hover {
     background: #595959;
     color: white;
+  }
+
+  &.enter {
+    animation: ${Effect} 1.5s ease infinite;
   }
 `;
 
@@ -124,9 +153,9 @@ const Game = ({ todos, setTodos }) => {
         </div>
       </GameTop>
       <GameMain>
-        <div className="bigtext">코딩 랜드</div>
+        <div className="bigtext">코 딩 랜 드</div>
         <img src="/imgs/gameslot.png" alt="메뉴이미지"></img>
-        <div className="middletext">안내 사항</div>
+        <div className="middletext">안 내 사 항</div>
         <div className="coin">
           <img src="/imgs/coin.png" alt="코인사진"></img>보유코인 수:
           {coinCount}개
@@ -139,7 +168,9 @@ const Game = ({ todos, setTodos }) => {
         </div>
 
         {coinCount >= 3 ? (
-          <Click onClick={handleEnterGame}>{">>> 입장 <<<"}</Click>
+          <Click className="enter" onClick={handleEnterGame}>
+            {">>> 입장 <<<"}
+          </Click>
         ) : (
           <Click>{"입장불가"}</Click>
         )}
