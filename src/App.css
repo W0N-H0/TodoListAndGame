@@ -192,10 +192,12 @@ section {
   0% {
     color: #f3f1cf;
     font-size: 2.5rem;
+    font-weight: 700;
   }
   49% {
     color: #ffffff;
     font-size: 2rem;
+    font-weight: 600;
   }
   60% {
     color: transparent;

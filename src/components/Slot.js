@@ -1,21 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import GameWrap from "./GameWrap";
 import RollContainer from "./RollContainer";
-import koreanFood1 from "../img/koreanFood1.png";
-import koreanFood2 from "../img/koreanFood2.png";
-import koreanFood3 from "../img/koreanFood3.png";
-import chineseFood1 from "../img/chineseFood1.png";
-import chineseFood2 from "../img/chineseFood2.png";
-import chineseFood3 from "../img/chineseFood3.png";
-import westernFood1 from "../img/westernFood1.png";
-import westernFood2 from "../img/westernFood2.png";
-import westernFood3 from "../img/westernFood3.png";
-import japaneseFood1 from "../img/japaneseFood1.png";
-import japaneseFood2 from "../img/japaneseFood2.png";
-import japaneseFood3 from "../img/japaneseFood3.png";
-import schoolFood1 from "../img/schoolFood1.png";
-import schoolFood2 from "../img/schoolFood2.png";
-import schoolFood3 from "../img/schoolFood3.png";
 import javascript from "../img/1javascript.png";
 import typescript from "../img/2typescript.png";
 import reactf from "../img/3react.png";
@@ -24,10 +9,11 @@ import node from "../img/5node.png";
 
 function Slots() {
   const [food1, setFood1] = useState(javascript);
-  const [food2, setFood2] = useState(typescript);
-  const [food3, setFood3] = useState(reactf);
+  const [food2, setFood2] = useState(javascript);
+  const [food3, setFood3] = useState(javascript);
 
   const [rolling, setRolling] = useState(false);
+  const [isFinished, setisFinished] = useState(false);
 
   const slotRefs = [useRef(null), useRef(null), useRef(null)];
 
@@ -40,17 +26,18 @@ function Slots() {
   useEffect(() => {
     if (!rolling) {
       const slot1Top = slotRefs[0].current.style.top;
-      const slot3Top = `calc(${slot1Top} -0px)`;
+      const slot3Top = `calc(${slot1Top} - 1px)`;
       slotRefs[2].current.style.top = slot3Top;
       slotRefs.slice(1, 2).forEach((slotRef) => {
         slotRef.current.style.top = slot1Top;
+        setisFinished(true);
       });
     }
-  }, [rolling]);
+  }, [rolling, isFinished]);
 
   const roll = () => {
     const totalRotations = 10;
-
+    setisFinished(!isFinished);
     setRolling(true);
     const rotationInterval = setInterval(() => {
       slotRefs.forEach((slotRef, i) => {
@@ -67,6 +54,7 @@ function Slots() {
     setTimeout(() => {
       clearInterval(rotationInterval);
       setRolling(false);
+      setisFinished(!isFinished);
     }, totalRotations * 400);
   };
 
@@ -85,6 +73,7 @@ function Slots() {
 
   return (
     <div className="MainGame">
+      {isFinished && food1 === javascript ? <div>자바스크립트</div> : null}
       <GameWrap slotRefs={slotRefs} foods={foods}></GameWrap>
 
       <div className="subWarp">

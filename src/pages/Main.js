@@ -88,7 +88,10 @@ const MainContainer = styled.div`
 `;
 
 function Main() {
-  const [todos, setTodos] = useState([]);
+  //로컬스토리지 적용
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) || []
+  );
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");

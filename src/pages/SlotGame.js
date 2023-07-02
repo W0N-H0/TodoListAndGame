@@ -21,6 +21,7 @@ const Background = styled.div`
     text-align: center;
     letter-spacing: 0.5rem;
     line-height: 7rem;
+    font-weight: 700;
   }
 `;
 

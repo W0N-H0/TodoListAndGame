@@ -139,7 +139,7 @@ const Game = ({ todos, setTodos }) => {
         </div>
 
         {coinCount >= 3 ? (
-          <Click onClick={handleEnterGame}>{">>>입장<<<"}</Click>
+          <Click onClick={handleEnterGame}>{">>> 입장 <<<"}</Click>
         ) : (
           <Click>{"입장불가"}</Click>
         )}
