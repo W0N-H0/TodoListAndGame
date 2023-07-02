@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import TodoList from "./TodoList";
+import TodoList from "./components/TodoList";
+import Game from "./components/Game";
 import styled from "styled-components";
 
 const BackgroundImage = styled.div`
@@ -87,10 +88,6 @@ const MainContainer = styled.div`
   flex-direction: row;
 `;
 
-const Game = styled.div`
-  border: 2px solid red;
-`;
-
 function App() {
   return (
     <>
@@ -116,9 +113,7 @@ function App() {
           </TitleContainer>
           <MainContainer>
             <TodoList></TodoList>
-            <Game>
-              <div>게임창</div>
-            </Game>
+            <Game></Game>
           </MainContainer>
         </Container>
       </BackgroundImage>
