@@ -92,8 +92,24 @@ const Click = styled.div`
   }
 `;
 
-const Game = ({ todos }) => {
-  const completedTodos = todos.filter((todo) => todo.completed).length;
+const Game = ({ todos, setTodos }) => {
+  // 보유 코인수 상태관리를 위한 useState
+  const [coinCount, setCoinCount] = useState(0);
+
+  useEffect(() => {
+    // todos의 상태가 바뀔때마다 랜더링
+    // coin 초기값을 completedTodos로 설정
+    const completedTodos = todos.filter((todo) => todo.completed).length;
+    setCoinCount(completedTodos);
+  }, [todos]);
+
+  // 클릭시 보유코인수를 3개씩 감소시키는 이벤트핸들러
+  const handleEnterGame = () => {
+    if (coinCount >= 3) {
+      setCoinCount((prevCoinCount) => prevCoinCount - 3);
+    }
+  };
+
   return (
     <Gamecontainer>
       <GameTop>
@@ -108,7 +124,7 @@ const Game = ({ todos }) => {
         <div className="middletext">안내 사항</div>
         <div className="coin">
           <img src="/imgs/coin.png" alt="코인사진"></img>보유코인 수:
-          {todos.filter((todo) => todo.completed).length}개
+          {coinCount}개
         </div>
         <div className="smalltext">
           - 과제 1개 완성시 코인 1개씩을 드립니다.
@@ -117,7 +133,11 @@ const Game = ({ todos }) => {
           - 코딩 랜드 입장에는 코인 3개가 필요합니다.
         </div>
 
-        <Click>{">>>입장<<<"}</Click>
+        {coinCount >= 3 ? (
+          <Click onClick={handleEnterGame}>{">>>입장<<<"}</Click>
+        ) : (
+          <Click>{"입장불가"}</Click>
+        )}
       </GameMain>
     </Gamecontainer>
   );
