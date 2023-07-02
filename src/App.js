@@ -89,6 +89,23 @@ const MainContainer = styled.div`
 `;
 
 function App() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const handleDeleteTodo = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
   return (
     <>
       <BackgroundImage>
@@ -112,8 +129,12 @@ function App() {
             <img src="/imgs/titleimage3.png" alt="타이틀이미지"></img>
           </TitleContainer>
           <MainContainer>
-            <TodoList></TodoList>
-            <Game></Game>
+            <TodoList
+              todos={todos}
+              handleDeleteTodo={handleDeleteTodo}
+              setTodos={setTodos}
+            ></TodoList>
+            <Game todos={todos}></Game>
           </MainContainer>
         </Container>
       </BackgroundImage>

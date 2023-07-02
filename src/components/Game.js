@@ -63,6 +63,13 @@ const GameMain = styled.div`
   .coin {
     font-size: 0.9rem;
     margin-left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+      width: 20px;
+      margin-right: 5px;
+    }
   }
 `;
 
@@ -78,9 +85,15 @@ const Click = styled.div`
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
   background: rgba(235, 235, 235, 0.589);
+
+  &:hover {
+    background: #595959;
+    color: white;
+  }
 `;
 
-const Game = () => {
+const Game = ({ todos }) => {
+  const completedTodos = todos.filter((todo) => todo.completed).length;
   return (
     <Gamecontainer>
       <GameTop>
@@ -93,7 +106,10 @@ const Game = () => {
         <div className="bigtext">코딩 랜드</div>
         <img src="/imgs/gameslot.png" alt="메뉴이미지"></img>
         <div className="middletext">안내 사항</div>
-        <div className="coin"> 📀 보유코인 수: 2개</div>
+        <div className="coin">
+          <img src="/imgs/coin.png" alt="코인사진"></img>보유코인 수:
+          {todos.filter((todo) => todo.completed).length}개
+        </div>
         <div className="smalltext">
           - 과제 1개 완성시 코인 1개씩을 드립니다.
         </div>

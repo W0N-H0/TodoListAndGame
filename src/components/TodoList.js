@@ -132,22 +132,11 @@ const TodoButton = styled.button`
   }
 `;
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
+  // const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [editingTodoId, setEditingTodoId] = useState(null);
   const [editingTodoText, setEditingTodoText] = useState("");
-
-  useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -169,11 +158,6 @@ const TodoList = () => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
-    setTodos(updatedTodos);
-  };
-
-  const handleDeleteTodo = (id) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
 
