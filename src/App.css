@@ -1,0 +1,210 @@
+.MainGame {
+  height: 410px;
+  width: 1000px;
+  background: #f5e0ff;
+  border: 3px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.GameWarp {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 17px 0;
+}
+
+.SlotMachine {
+  width: 800px;
+  height: 215px;
+  border-radius: 10px;
+  border: 3px solid black;
+  background: #e2cffa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 10px;
+}
+
+.slotContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 3px solid black !important;
+  height: 147px;
+  width: 700px;
+  padding: 7px 5px 0 0px;
+  background-color: #bb83ffa4;
+}
+
+.coin1 {
+  position: absolute;
+  top: 90px;
+  left: 27px;
+  width: 35px;
+  height: 35px;
+}
+.coin2 {
+  position: absolute;
+  top: 90px;
+  left: 737px;
+  width: 35px;
+  height: 35px;
+}
+
+.line {
+  border-top: 3px dashed #d29a8c;
+  position: absolute;
+  top: 106px;
+  left: 65px;
+  width: 670px;
+  height: 35px;
+  z-index: 1;
+}
+
+.SlotMachine .slot .container {
+  transition: top 0.5s ease;
+}
+
+section {
+  position: absolute;
+  border-radius: 2px !important;
+  border-left: 3px solid black !important;
+  border-right: 3px solid black !important;
+  width: 210px;
+  height: 154px;
+
+  overflow: hidden;
+  background-color: #f5e0ff;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 120px;
+  cursor: default;
+}
+
+.container {
+  position: absolute;
+  margin: 30px 0 0 0;
+  top: 2px;
+  width: 100%;
+  transition: top ease-in-out 0.5s;
+  text-align: center;
+  z-index: 2;
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 200px;
+  margin: 0px 20px 10px 10px;
+}
+
+.subWarp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.regionSelect > select {
+  width: 200px;
+  height: 50px;
+  margin-right: 50px;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-size: 1.2rem;
+  padding-left: 15px;
+  padding-right: 15px;
+  appearance: none;
+  background: #fff2e9;
+  background-image: url("./img/down.png") no-repeat right 10px center;
+}
+
+.inputDistrict > input {
+  width: 200px;
+  height: 50px;
+  margin-left: 50px;
+  border-radius: 5px;
+  background: #fff2e9;
+  border: 2px solid black;
+  font-size: 1.2rem;
+  padding-left: 15px;
+}
+
+.a {
+  margin: 10px;
+}
+
+.rollContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.rollContainer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.roll {
+  width: 230px;
+  height: 80px;
+  cursor: pointer;
+  background-color: #a466f7;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+.loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 86px;
+  border-radius: 5px;
+}
+
+.Slot3 {
+  top: -10px;
+}
+
+.rolling {
+  animation: blinkingText 1.3s ease infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: #f3f1cf;
+    font-size: 2.5rem;
+  }
+  49% {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #ffffff;
+    font-size: 2.5rem;
+  }
+}

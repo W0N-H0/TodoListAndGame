@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Gamecontainer = styled.div`
   padding: 20px 20px 20px 15px;
@@ -103,11 +104,15 @@ const Game = ({ todos, setTodos }) => {
     setCoinCount(completedTodos);
   }, [todos]);
 
-  // 클릭시 보유코인수를 3개씩 감소시키는 이벤트핸들러
+  // 페이지 이동 navigate
+  const navigate = useNavigate();
+
+  // 클릭시 보유코인수를 3개씩 감소시키는 이벤트핸들러 + 페이지 이동
   const handleEnterGame = () => {
     if (coinCount >= 3) {
       setCoinCount((prevCoinCount) => prevCoinCount - 3);
     }
+    navigate("/slotgame");
   };
 
   return (
