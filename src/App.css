@@ -170,6 +170,10 @@ section {
   color: white;
 }
 
+.roll:hover {
+  background-color: #8248c9;
+}
+
 .loading {
   display: flex;
   flex-direction: row;
