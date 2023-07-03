@@ -41,17 +41,17 @@
   background-color: #bb83ffa4;
 }
 
-.coin1 {
+.heart1 {
   position: absolute;
   top: 90px;
-  left: 27px;
+  left: 29px;
   width: 35px;
   height: 35px;
 }
-.coin2 {
+.heart2 {
   position: absolute;
   top: 90px;
-  left: 737px;
+  left: 738px;
   width: 35px;
   height: 35px;
 }

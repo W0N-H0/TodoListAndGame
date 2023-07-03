@@ -1,13 +1,13 @@
 import React from "react";
-import coin from "../img/coin.png";
+import heart from "../img/heart.png";
 
 const GameWarp = ({ slotRefs, foods }) => {
   return (
     <div className="GameWarp">
       <div className="SlotMachine">
         <div className="slotContainer">
-          <img className="coin1" src={coin} alt="coin"></img>
-          <img className="coin2" src={coin} alt="coin"></img>
+          <img className="heart1" src={heart} alt="heart"></img>
+          <img className="heart2" src={heart} alt="heart"></img>
           <div className="line"></div>
           <div className="slot">
             <section>
