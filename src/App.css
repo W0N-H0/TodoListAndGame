@@ -9,6 +9,13 @@
   align-items: center;
 }
 
+.ModalContainer {
+  position: absolute;
+  width: 1345px;
+  height: 1000px;
+  background-color: black;
+}
+
 .GameWarp {
   display: flex;
   flex-direction: column;
@@ -190,6 +197,25 @@ section {
 
 .rolling {
   animation: blinkingText 1.3s ease infinite;
+}
+
+.GameModal {
+  border: 5px dashed #8248c9;
+  background-color: #e2cffa;
+  border-radius: 10px;
+  top: 180px;
+  min-width: 1000px;
+  min-height: 600px;
+  position: absolute;
+  z-index: 999;
+  font-size: 6.5rem;
+  padding: 30px;
+  text-align: center;
+  line-height: 9rem;
+}
+.GameModal > img {
+  width: 150px;
+  height: 150px;
 }
 
 @keyframes blinkingText {

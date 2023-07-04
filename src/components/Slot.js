@@ -11,9 +11,12 @@ function Slots() {
   const [food1, setFood1] = useState(javascript);
   const [food2, setFood2] = useState(javascript);
   const [food3, setFood3] = useState(javascript);
-
   const [rolling, setRolling] = useState(false);
+
   const [isFinished, setisFinished] = useState(false);
+  // 모달 on off를 위한 상태 추가
+  const [openModal, setopenModal] = useState(true);
+  console.log(openModal);
 
   const slotRefs = [useRef(null), useRef(null), useRef(null)];
 
@@ -55,6 +58,10 @@ function Slots() {
       clearInterval(rotationInterval);
       setRolling(false);
       setisFinished(!isFinished);
+      //  클릭버튼 누를시 다시 모달상태 업데이트 => setTimeout을 이용하여, 슬롯 결과가 나오고 모달창이 1초뒤에 뜨도록 구현
+      setTimeout(() => {
+        setopenModal(!openModal);
+      }, 1000);
     }, totalRotations * 400);
   };
 
@@ -71,9 +78,27 @@ function Slots() {
     return filteredFoods[randomOption];
   };
 
+  const closeModal = () => {
+    // 모달끄는 이벤트핸들러 함수
+    return setopenModal(!openModal);
+  };
   return (
     <div className="MainGame">
-      {isFinished && food1 === javascript ? <div>자바스크립트</div> : null}
+      {isFinished && !openModal ? (
+        <div className="GameModal" onClick={closeModal}>
+          🎉🎉🎉🎉🎉
+          <br></br>축 하 합 니 다 !<br></br>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
+          >
+            💸 선 물 받 기 💸
+          </a>
+          <br></br>
+          🎉🎉🎉🎉🎉
+        </div>
+      ) : null}
       <GameWrap slotRefs={slotRefs} foods={foods}></GameWrap>
 
       <div className="subWarp">
