@@ -86,10 +86,10 @@ const Effect = keyframes`
     font-size: 1.5rem;
     font-weight: 500;
   }
-  60% {
+  70% {
     color: transparent;
   }
-  99% {
+  97% {
     color: transparent;
   }
   100% {
