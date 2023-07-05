@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/TodoListAndGame/static/css/main.38f29e20.css",
-    "main.js": "/TodoListAndGame/static/js/main.718230bf.js",
-    "static/media/MiraeroNormal.woff": "/TodoListAndGame/static/media/MiraeroNormal.c3c955db32316c7904be.woff",
-    "static/media/background.jpg": "/TodoListAndGame/static/media/background.b55f2ed071021c0cf9b3.jpg",
-    "static/media/loading.gif": "/TodoListAndGame/static/media/loading.d03974c417274f5e9d05.gif",
-    "index.html": "/TodoListAndGame/index.html",
-    "main.38f29e20.css.map": "/TodoListAndGame/static/css/main.38f29e20.css.map",
-    "main.718230bf.js.map": "/TodoListAndGame/static/js/main.718230bf.js.map"
+    "main.css": "/TodoListAndGame/index.html/static/css/main.f823c6a1.css",
+    "main.js": "/TodoListAndGame/index.html/static/js/main.d335b105.js",
+    "static/media/MiraeroNormal.woff": "/TodoListAndGame/index.html/static/media/MiraeroNormal.c3c955db32316c7904be.woff",
+    "static/media/background.jpg": "/TodoListAndGame/index.html/static/media/background.b55f2ed071021c0cf9b3.jpg",
+    "static/media/loading.gif": "/TodoListAndGame/index.html/static/media/loading.d03974c417274f5e9d05.gif",
+    "index.html": "/TodoListAndGame/index.html/index.html",
+    "main.f823c6a1.css.map": "/TodoListAndGame/index.html/static/css/main.f823c6a1.css.map",
+    "main.d335b105.js.map": "/TodoListAndGame/index.html/static/js/main.d335b105.js.map"
   },
   "entrypoints": [
-    "static/css/main.38f29e20.css",
-    "static/js/main.718230bf.js"
+    "static/css/main.f823c6a1.css",
+    "static/js/main.d335b105.js"
   ]
 }
