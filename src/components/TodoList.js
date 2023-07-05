@@ -133,7 +133,7 @@ const TodoButton = styled.button`
 `;
 
 const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
-  // const [todos, setTodos] = useState([]);
+  // 상태끌어올리기 => Main 컴포넌트 const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [editingTodoId, setEditingTodoId] = useState(null);
   const [editingTodoText, setEditingTodoText] = useState("");
@@ -142,6 +142,7 @@ const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
     setInputValue(e.target.value);
   };
 
+  // 추가 버튼 누를시 input을 TodoItem에 추가하는 핸들러함수
   const handleAddTodo = () => {
     if (inputValue.trim() !== "") {
       const newTodo = {
@@ -156,11 +157,16 @@ const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
 
   const handleToggleComplete = (id) => {
     const updatedTodos = todos.map((todo) =>
+      // 내가 선택한 todo항목의 completed 값을 현재의 반대값으로 바꿔줌
+      // 따라서 클릭시 마다 완료상태가 바뀜
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
     setTodos(updatedTodos);
   };
 
+  // 수정버튼 클릭시 editingTodoId, EditingTodoText 상태를 바꿔주는 핸들러함수
+  // + find 메서드는 true일시 해당값 자체를 반환,
+  // 내가 클릭한 TodoItem의 EditingTodoId을 id로 상태변경, EditingTodoText 상태(값)를 TodoItem text값으로 상태변경
   const handleEditTodo = (id) => {
     const todoToEdit = todos.find((todo) => todo.id === id);
     if (todoToEdit) {
@@ -169,6 +175,8 @@ const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
     }
   };
 
+  // 위 handleEditTodo 핸들러 함수에서의 editingTodoId을 활용하여
+  // 수정하기위한 TodoItem을 찾고, 해당 TodoItem의 값(Todos)의 값을 새로운 수정값(editingTodoText) 으로 바꿔줌
   const handleUpdateTodo = () => {
     const updatedTodos = todos.map((todo) =>
       todo.id === editingTodoId ? { ...todo, text: editingTodoText } : todo
@@ -178,6 +186,7 @@ const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
     setEditingTodoText("");
   };
 
+  // 수정 상태에서 취소버튼 눌럿을때의 핸들러함수
   const handleCancelEdit = () => {
     setEditingTodoId(null);
     setEditingTodoText("");
@@ -211,6 +220,7 @@ const TodoList = ({ todos, handleDeleteTodo, setTodos }) => {
         <div>
           {todos.map((todo) => (
             <TodoItem key={todo.id}>
+              {/* editingTodoId 상태를 비교하여, true인 경우 edit 상태의 input을 랜더링해줌 */}
               {editingTodoId === todo.id ? (
                 <TodoInput2
                   type="text"
