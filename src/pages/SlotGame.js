@@ -15,7 +15,7 @@ const Background = styled.div`
   align-items: center;
 
   > .title {
-    margin: -200px 0 10px 0;
+    margin: -200px 0 20px 0;
     color: white;
     font-size: 4.5rem;
     text-align: center;
@@ -24,7 +24,8 @@ const Background = styled.div`
     font-weight: 700;
     background-color: rgba(255, 88, 238, 0.75);
     border-radius: 10px;
-    padding: 5px;
+    padding: 5px 15px 5px 20px;
+    border: 4px dashed white;
   }
 `;
 

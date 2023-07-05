@@ -31,7 +31,7 @@ const GameMain = styled.div`
   border-bottom: 2.5px solid black;
   border-left: 2.5px solid black;
   // 박스크기 조정
-  height: 495px;
+  height: 499px;
   border-radius: 0 0 10px 10px;
   display: flex;
   flex-direction: column;

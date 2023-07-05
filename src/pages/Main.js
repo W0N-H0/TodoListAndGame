@@ -67,7 +67,7 @@ const TitleContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 3.3rem;
   padding: 35px 25px 5px 25px;
   letter-spacing: 0.8rem;
   line-height: 4rem;
