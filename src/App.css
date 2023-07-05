@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.97;
 }
 
 .ModalContainer {
@@ -51,14 +52,14 @@
 .heart1 {
   position: absolute;
   top: 90px;
-  left: 29px;
+  left: 28px;
   width: 35px;
   height: 35px;
 }
 .heart2 {
   position: absolute;
   top: 90px;
-  left: 738px;
+  left: 740px;
   width: 35px;
   height: 35px;
 }
@@ -204,11 +205,11 @@ section {
   background-color: #e2cffa;
   border-radius: 10px;
   top: 180px;
-  min-width: 1000px;
-  min-height: 600px;
+  min-width: 950px;
+  min-height: 580px;
   position: absolute;
   z-index: 999;
-  font-size: 6.5rem;
+  font-size: 5.8rem;
   padding: 30px;
   text-align: center;
   line-height: 9rem;
