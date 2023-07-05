@@ -1,3 +1,7 @@
 # [SEB FE] Section 3 Unit8 - Coz’ Mini Hackathon 과제
 
-![image](https://github.com/WONHO22/TodoListAndGame/assets/129931980/e6ae106b-c2d5-46e2-b5c2-f8698d16d0ba)
+- TodoList 구현
+- TodoList 3개 이상 완료시 오락실 입장 가능
+- 슬롯머신 결과에 따라 다른 선물 제공 기능 구현
+
+![image](https://github.com/WONHO22/TodoListAndGame/assets/129931980/4b90a5e7-36e2-49fd-ab56-1c57c47328f2)
