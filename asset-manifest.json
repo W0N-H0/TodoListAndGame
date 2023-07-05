@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/TodoListAndGame/static/css/main.38f29e20.css",
+    "main.js": "/TodoListAndGame/static/js/main.718230bf.js",
+    "static/media/MiraeroNormal.woff": "/TodoListAndGame/static/media/MiraeroNormal.c3c955db32316c7904be.woff",
+    "static/media/background.jpg": "/TodoListAndGame/static/media/background.b55f2ed071021c0cf9b3.jpg",
+    "static/media/loading.gif": "/TodoListAndGame/static/media/loading.d03974c417274f5e9d05.gif",
+    "index.html": "/TodoListAndGame/index.html",
+    "main.38f29e20.css.map": "/TodoListAndGame/static/css/main.38f29e20.css.map",
+    "main.718230bf.js.map": "/TodoListAndGame/static/js/main.718230bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38f29e20.css",
+    "static/js/main.718230bf.js"
+  ]
+}
