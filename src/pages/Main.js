@@ -88,11 +88,16 @@ const MainContainer = styled.div`
 `;
 
 function Main() {
-  //로컬스토리지 적용
+  // * 로컬스토리지 적용 *
+  // todos의 초기값을
+  // 1. 로컬스토리지에 "todos"라는 키가 있으면 해당 value를 parsing하고,
+  // 2. 없는경우 todos상태(값)의 빈배열로함
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
 
+  // 의존성배열 []로, 초기 랜더링시 1번 useEffect훅의 콜백함수 실행
+  // 컴포넌트 처음 마운트 시 로컬 저장소 값와 상태(state)를 동기화하기 위함
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
@@ -100,6 +105,7 @@ function Main() {
     }
   }, []);
 
+  // todos의 상태가 바뀔때마다 로컬스토리지의 "todos" 라는 키의 value를 json형태로 저장
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
