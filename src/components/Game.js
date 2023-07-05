@@ -142,7 +142,7 @@ const Game = ({ todos, setTodos, coinCount, setCoinCount }) => {
       setCoinCount((prevCoinCount) => prevCoinCount - 3);
       setTimeout(() => {
         navigate("/slotgame");
-      }, 500);
+      }, 200);
     }
   };
 

@@ -69,7 +69,7 @@ function Slots() {
       //  클릭버튼 누를시 다시 모달상태 업데이트 => setTimeout을 이용하여, 슬롯 결과가 나오고 모달창이 1초뒤에 뜨도록 구현
       setTimeout(() => {
         setopenModal(!openModal);
-      }, 1000);
+      }, 700);
     }, totalRotations * 400);
   };
 
