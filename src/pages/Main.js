@@ -88,6 +88,9 @@ const MainContainer = styled.div`
 `;
 
 function Main() {
+  const [coinCount, setCoinCount] = useState(
+    JSON.parse(localStorage.getItem("coins")) || 0
+  );
   // * 로컬스토리지 적용 *
   // todos의 초기값을
   // 1. 로컬스토리지에 "todos"라는 키가 있으면 해당 value를 parsing하고,
@@ -100,15 +103,18 @@ function Main() {
   // 컴포넌트 처음 마운트 시 로컬 저장소 값와 상태(state)를 동기화하기 위함
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
+    const storedCoins = localStorage.getItem("coins");
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
+      setCoinCount(JSON.parse(storedCoins));
     }
   }, []);
 
   // todos의 상태가 바뀔때마다 로컬스토리지의 "todos" 라는 키의 value를 json형태로 저장
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    localStorage.setItem("coins", JSON.stringify(coinCount));
+  }, [todos, coinCount]);
 
   const handleDeleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
@@ -142,7 +148,11 @@ function Main() {
               handleDeleteTodo={handleDeleteTodo}
               setTodos={setTodos}
             ></TodoList>
-            <Game todos={todos}></Game>
+            <Game
+              todos={todos}
+              coinCount={coinCount}
+              setCoinCount={setCoinCount}
+            ></Game>
           </MainContainer>
         </Container>
       </BackgroundImage>

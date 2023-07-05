@@ -122,9 +122,9 @@ const Click = styled.div`
   }
 `;
 
-const Game = ({ todos, setTodos }) => {
+const Game = ({ todos, setTodos, coinCount, setCoinCount }) => {
   // 보유 코인수 상태관리를 위한 useState
-  const [coinCount, setCoinCount] = useState(0);
+  // const [coinCount, setCoinCount] = useState(0);
 
   useEffect(() => {
     // todos의 상태가 바뀔때마다 랜더링
@@ -140,8 +140,10 @@ const Game = ({ todos, setTodos }) => {
   const handleEnterGame = () => {
     if (coinCount >= 3) {
       setCoinCount((prevCoinCount) => prevCoinCount - 3);
+      setTimeout(() => {
+        navigate("/slotgame");
+      }, 500);
     }
-    navigate("/slotgame");
   };
 
   return (
