@@ -93,80 +93,46 @@ function Slots() {
     return setopenModal(!openModal);
   };
 
+  // 모달창 조건부 하드코딩 방지를 위한 변수 선언 및 할당
+  const resultOptions = [
+    {
+      food: javascript,
+      href: "https://www.youtube.com/watch?v=WHUvtiKy_pg",
+    },
+    {
+      food: typescript,
+      href: "https://www.youtube.com/watch?v=xkpcNolC270&t=456s&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C",
+    },
+    {
+      food: reactf,
+      href: "https://www.youtube.com/watch?v=00yJy7W0DQE&list=PLfLgtT94nNq0qTRunX9OEmUzQv4lI4pnP&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C",
+    },
+    {
+      food: vue,
+      href: "https://www.youtube.com/watch?v=-tVaahsXpwk&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C",
+    },
+    {
+      food: node,
+      href: "https://www.youtube.com/watch?v=-zOfTS1HQTc&list=PLfLgtT94nNq1qmsvIii_CAxFlD7tvB5NE&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C",
+    },
+  ];
+  // 슬롯결과에 따른 모달창 조건부 렌더링 / 적절한 링크 연결을 위한 변수 선언 및 할당
+  const modalContent = resultOptions.find((el) => el.food === food1);
+
   return (
     <div className="MainGame">
       {/* 조건부 랜더링 */}
-      {isFinished && !openModal && food1 === javascript ? (
+      {isFinished && !openModal && modalContent && (
         <div className="GameModal" onClick={closeModal}>
           🎉🎉🎉🎉🎉
-          <br></br>Congratulations!<br></br>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
-          >
-            💸 Receive a gift 💸
+          <br></br>축 하 합 니 다 !<br></br>
+          <a target="_blank" rel="noopener noreferrer" href={modalContent.href}>
+            💸 선 물 받 기 💸
           </a>
           <br></br>
           🎉🎉🎉🎉🎉
         </div>
-      ) : isFinished && !openModal && food1 === typescript ? (
-        <div className="GameModal" onClick={closeModal}>
-          🎉🎉🎉🎉🎉
-          <br></br>Congratulations!<br></br>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
-          >
-            💸 Receive a gift 💸
-          </a>
-          <br></br>
-          🎉🎉🎉🎉🎉
-        </div>
-      ) : isFinished && !openModal && food1 === reactf ? (
-        <div className="GameModal" onClick={closeModal}>
-          🎉🎉🎉🎉🎉
-          <br></br>Congratulations!<br></br>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
-          >
-            💸 Receive a gift 💸
-          </a>
-          <br></br>
-          🎉🎉🎉🎉🎉
-        </div>
-      ) : isFinished && !openModal && food1 === vue ? (
-        <div className="GameModal" onClick={closeModal}>
-          🎉🎉🎉🎉🎉
-          <br></br>Congratulations!<br></br>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
-          >
-            💸 Receive a gift 💸
-          </a>
-          <br></br>
-          🎉🎉🎉🎉🎉
-        </div>
-      ) : isFinished && !openModal && food1 === node ? (
-        <div className="GameModal" onClick={closeModal}>
-          🎉🎉🎉🎉🎉
-          <br></br>Congratulations!<br></br>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/watch?v=8rv8GTgYYrU&list=PLfLgtT94nNq0svPBSslzReYKbZRuv_-NK&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C"
-          >
-            💸 Receive a gift 💸
-          </a>
-          <br></br>
-          🎉🎉🎉🎉🎉
-        </div>
-      ) : null}
+      )}
       <GameWrap slotRefs={slotRefs} foods={foods}></GameWrap>
 
       <div className="subWarp">
